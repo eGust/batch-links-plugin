@@ -11,8 +11,8 @@ import 'muicss/dist/css/mui.min.css'
 import './css/app.css'
 // import html from './test/html'
 
-// const store = createStore(reducer, buildState(), applyMiddleware(createLogger()))
 const store = createStore(reducer, buildState())
+// const store = createStore(reducer, buildState(), applyMiddleware(createLogger()))
 
 ReactDOM.render(
   <Provider store={store}>
