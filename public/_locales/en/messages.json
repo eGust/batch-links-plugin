@@ -37,5 +37,18 @@
   },
   "select_range": {
     "message": "Range Select:"
+  },
+
+  "tip_copy_success": {
+    "message": "Copied %s links"
+  },
+  "tip_copy_failed": {
+    "message": "No links selected"
+  },
+  "tip_range_invalid": {
+    "message": "The range is not correct"
+  },
+  "tip_detected_links": {
+    "message": "Detected %s links"
   }
 }

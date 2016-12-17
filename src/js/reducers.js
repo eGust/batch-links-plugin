@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import detectLinks from './linkDetector'
 import showTip from './tip'
+import { tf } from './i18n'
 
 const DEFAULT_STATE = {
 	filterResult: {
@@ -18,9 +19,7 @@ const DEFAULT_STATE = {
 
 export function buildState(state = DEFAULT_STATE, html = '') {
 	let { links, filters } = detectLinks(html);
-	showTip(`Detected ${links.length} links`);
 	return {
-		...DEFAULT_STATE,
 		...state,
 		links: _.map(links, (link, index) => ({
 			...link,
@@ -145,9 +144,9 @@ function copyLinksToClipboard(state) {
 		$input.focus()
 		$input.select()
 		document.execCommand('Copy')
-		showTip(`Copied ${state.selected.length} links`)
+		showTip(tf('tip_copy_success', "Copied %s links", state.selected.length))
 	} else {
-		showTip(`No link selected`)
+		showTip(tf('tip_copy_failed', `No link selected`))
 	}
 	return state
 }
@@ -211,8 +210,10 @@ function setRange(state, action) {
 
 function setRangeSelect(state, action) {
 	let { links, selectRange } = state;
-	if (!(_.isInteger(selectRange.low) && _.isInteger(selectRange.high)))
+	if (!(_.isInteger(selectRange.low) && _.isInteger(selectRange.high))) {
+		showTip(tf('tip_range_invalid', `The range is not correct`));
 		return state;
+	}
 
 	let checked = action === 'ALL'
 	, low = _.min([selectRange.low, selectRange.high])
@@ -238,6 +239,7 @@ function reducer(state, action) {
 	switch (action.type) {
 		case 'REBUILD_STATE':
 			state = buildState(state, action.html);
+			showTip(tf('tip_detected_links', "Detected %s links", state.links.length));
 			break;
 		case 'COPY_LINKS':
 			state = copyLinksToClipboard(state);

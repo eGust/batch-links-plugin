@@ -2,15 +2,7 @@ import React from 'react';
 import { Row, Col, Button, Form, Input, Checkbox, Tabs, Tab, } from 'muicss/react'
 import { SELECT_ALL, SELECT_REVERT, SELECT_CLEAR, SET_RANGE, RANGE_ALL, RANGE_CLEAR, COPY_LINKS, REBUILD_STATE } from './actions'
 import _ from 'lodash'
-
-function tr(text, defaultText) {
-	try {
-		let r = window.chrome.i18n.getMessage(text);
-		return r && r.length ? r : (defaultText || text);
-	} catch (e) {
-		return text
-	}
-}
+import { tr } from './i18n'
 
 export const MainButtons = ({ dispatch, selected }) => (
 	<Row>

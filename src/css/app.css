@@ -127,6 +127,9 @@ textarea {
 	vertical-align: middle;
 	text-shadow: 1px 1px 1px #795548;
 	box-shadow: 4px 4px 4px #C0CA33;
+
+	user-select: none;
+	cursor: default;
 }
 
 @keyframes show-tip {
