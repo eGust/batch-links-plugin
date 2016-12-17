@@ -1,0 +1,141 @@
+body {
+	overflow-y: hidden;
+	background-color: #EEE;
+	position: relative;
+	width: 650px;
+	height: 530px;
+}
+
+main {
+	position: relative;
+	width: 650px;
+	height: 530px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+#root {
+	width: 100%;
+}
+
+.range-text {
+	width: 40px;
+}
+
+.range-text input {
+	text-align: right;
+}
+
+.mui-textfield {
+	padding-top: 5px;
+}
+
+.float-left {
+	float: left;
+}
+
+.padding-left-15 {
+	padding-left: 15px;
+}
+
+.float-right {
+	float: right;
+}
+
+.padding-right-15 {
+	padding-right: 15px;
+}
+
+a {
+	word-wrap: break-word;
+}
+
+.link-row > * {
+	padding: 5px;
+	vertical-align: middle;
+}
+
+.link-row .mui-checkbox {
+	margin: 0;
+}
+
+.link-row .mui-checkbox label {
+	text-align: right;
+	display: inline-block;
+	width: 100%;
+	padding-right: 5px;
+}
+
+.link-row .mui-checkbox label input[type='checkbox'] {
+	margin-left: 10px;
+	left: 10px;
+}
+
+.link-list-wrap {
+	position: relative;
+	padding: 5px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+.link-list {
+	height: 320px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-right .mui-checkbox {
+	margin-left: 8px;
+}
+
+input[type="checkbox"] {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.mui-tabs__bar>li>a {
+	height: 36px;
+	cursor: pointer;
+	vertical-align: bottom;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+}
+
+.tip {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: inline-block;
+	/*border-radius: 3px;*/
+
+	height: 36px;
+	padding: 8px 15px;
+	bottom: -40px;
+	background-color: #FFEB3B;
+	text-align: center;
+	vertical-align: middle;
+	text-shadow: 1px 1px 1px #795548;
+	box-shadow: 4px 4px 4px #C0CA33;
+}
+
+@keyframes show-tip {
+    0%   	{ bottom: -40px; }
+    20%  	{ bottom:  40px; }
+    80%		{ bottom:  40px; }
+    100%	{ bottom: -40px; }
+}
+
+.show.tip {
+	animation: 4s show-tip;
+}

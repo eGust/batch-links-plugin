@@ -1,0 +1,44 @@
+{
+  "extension_name": {
+    "message": "链接批量复制助手"
+  },
+  "extension_description": {
+    "message": "方便复制页面内大量的ed2k、magnet、迅雷、快车、QQ等链接的应用"
+  },
+  "refresh": {
+    "message": "刷新"
+  },
+  "copy": {
+    "message":"复制"
+  },
+  "all": {
+    "message":"全选"
+  },
+  "clear": {
+    "message":"清除"
+  },
+  "revert": {
+    "message":"反选"
+  },
+  "any": {
+    "message": "全部"
+  },
+  "magnet": {
+    "message":"磁力"
+  },
+  "thunder": {
+    "message":"迅雷"
+  },
+  "flashget": {
+    "message":"快车"
+  },
+  "qqdl": {
+    "message":"QQ"
+  },
+  "filter": {
+    "message":"过滤内容："
+  },
+  "select_range": {
+    "message":"范围选择："
+  }
+}

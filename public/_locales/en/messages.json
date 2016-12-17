@@ -1,0 +1,41 @@
+{
+  "extension_name": {
+    "message": "Batch Links Helper"
+  },
+  "extension_description": {
+    "message": "Easily copy batch of ed2k, magnet, thunder, flashget and QQ links"
+  },
+  "refresh": {
+    "message": "Refresh"
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "all": {
+    "message": "All"
+  },
+  "clear": {
+    "message": "Clear"
+  },
+  "revert": {
+    "message": "Revert"
+  },
+  "any": {
+    "message": "Any"
+  },
+  "thunder": {
+    "message": "thunder"
+  },
+  "flashget": {
+    "message": "flashget"
+  },
+  "qqdl": {
+    "message": "QQ"
+  },
+  "filter": {
+    "message": "Filter Result:"
+  },
+  "select_range": {
+    "message": "Range Select:"
+  }
+}
