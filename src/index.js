@@ -22,7 +22,9 @@ ReactDOM.render(
 );
 
 try {
-	window.chrome.extension.getBackgroundPage().getActiveBody((html) => store.dispatch(REBUILD_STATE(html)))
+	window.chrome.runtime.getBackgroundPage((page) => {
+		page.getActiveBody((html) => store.dispatch(REBUILD_STATE(html)))
+	})
 } catch (e) {
 	// store.dispatch(REBUILD_STATE(html))
 }

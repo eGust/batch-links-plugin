@@ -15,7 +15,9 @@ function tr(text, defaultText) {
 export const MainButtons = ({ dispatch, selected }) => (
 	<Row>
 		<Col xs={3}>
-			<Button size="small" color="primary" onClick={(e) => { e.preventDefault(); window.chrome.extension.getBackgroundPage().getActiveBody((html) => dispatch(REBUILD_STATE(html))) } }>{tr('refresh')}</Button>
+			<Button size="small" color="primary" onClick={(e) => { e.preventDefault(); window.chrome.runtime.getBackgroundPage((page) =>
+					page.getActiveBody((html) => dispatch(REBUILD_STATE(html)))
+				) } }>{tr('refresh')}</Button>
 		</Col>
 		<Col xs={6} className='text-center'>
 			<h4>{tr('extension_name')}</h4>
