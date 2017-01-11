@@ -72,27 +72,22 @@ export const Filter = ({ filters, filterResult, onToggleTypeFilter, onUpdateFilt
 
 export const TypeTabs = ({ filters, links, onSetTypeFilters, onSelectCopyLinks, selected }) => (
 	<Tabs justified={true}>
-	{
-		_.concat([
-				<Tab label={`${tr('any')} (${_.sumBy(filters, (f) => f.count)})`} key='any' onActive={() => onSetTypeFilters({ filters, custom: true })} />
-			],
+		<Tab label={`${tr('any')} (${_.sumBy(filters, (f) => f.count)})`} key='any' onActive={() => onSetTypeFilters({ filters, custom: true })} />
+		{
 			_.map(filters, (linkType, i) => (
 				<Tab label={`${tr(linkType.name)} (${linkType.count})`} key={linkType.name} onActive={() => {onSetTypeFilters({ filters: [linkType] })}} />
-			)),
-			[
-				<Tab label={`${tr('copy')} (${selected.length})`} key='copy' onActive={() => {
-					onSelectCopyLinks();
-					setTimeout(() => {
-						let $input = document.getElementById('text-copy');
-						$input.focus()
-						$input.select()
-					}, 100);
-				}}>
-					<textarea id="text-copy" value={_.map(selected, (link) => link.url).join('\n')} rows={18} />
-				</Tab>
-			]
-		)
-	}
+			))
+		}
+		<Tab label={`${tr('copy')} (${selected.length})`} key='copy' onActive={() => {
+			onSelectCopyLinks();
+			setTimeout(() => {
+				let $input = document.getElementById('text-copy');
+				$input.focus()
+				$input.select()
+			}, 100);
+		}}>
+			<textarea id="text-copy" value={_.map(selected, (link) => link.url).join('\n')} rows={18} />
+		</Tab>
 	</Tabs>
 )
 
