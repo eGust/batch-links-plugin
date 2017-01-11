@@ -3,6 +3,8 @@ import { Row, Col, Button, Form, Input, Checkbox, Tabs, Tab, } from 'muicss/reac
 import { SELECT_ALL, SELECT_REVERT, SELECT_CLEAR, SET_RANGE, RANGE_ALL, RANGE_CLEAR, COPY_LINKS, REBUILD_STATE } from './actions'
 import _ from 'lodash'
 import { tr } from './i18n'
+import Big from 'big.js'
+import { sprintf } from 'sprintf'
 
 export const MainButtons = ({ dispatch, selected }) => (
 	<Row>
@@ -94,6 +96,18 @@ export const TypeTabs = ({ filters, links, onSetTypeFilters, onSelectCopyLinks, 
 	</Tabs>
 )
 
+const KB = 1024, MB = KB * 1024, GB = MB * 1024
+
+function hfSize(size) {
+	if (!size) return ''
+	let s = new Big(size)
+	if (s.gt(0x70000000)) {
+		return `${s.div(GB).toFixed(1)} GB`
+	}
+	let n = size | 0
+	return n < KB ? n : n < MB ? sprintf('%.1f KB', n / KB) : n < GB ? sprintf('%.1f MB', n / MB) : sprintf('%.1f GB', n / GB)
+}
+
 export const LinkItem = ({ checked = false, index, titles, url, size, decoded, onChangeSel }) => (
 	<Row className='link-row' title={url}>
 		<Col xs={2}>
@@ -104,7 +118,7 @@ export const LinkItem = ({ checked = false, index, titles, url, size, decoded, o
 		</Col>
 		{
 			size ?
-			<Col xs={2}>{size > (1024*1024) ? `${Math.floor(size / (1024*1024))} MB` : `${Math.floor(size / 1024)} KB`}</Col>
+			<Col xs={2}>{hfSize(size)}</Col>
 			: null
 		}
 	</Row>

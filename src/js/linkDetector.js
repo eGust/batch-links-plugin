@@ -10,7 +10,7 @@ const PROTOCOLS = {
             return {
                 prefix: 'ed2k',
                 name: match[0],
-                size: match[2] | 0,
+                size: match[2],
                 decoded: null,
                 url: link,
             };
@@ -19,11 +19,11 @@ const PROTOCOLS = {
     magnet: {
         search: /magnet:\?[^"]+/gi,
         decode(link) {
-            let mName = link.match(/dn=(.+?)&/), mSize = link.match(/xl=(.+?)&/);
+            let mName = link.match(/dn=(.+?)&/), mSize = link.match(/xl=(\d+?)&/);
             return {
                 prefix: 'magnet',
                 name: mName ? mName[0] : '',
-                size: mSize && (mSize[1] | 0),
+                size: mSize && mSize[1],
                 decoded: null,
                 url: link,
             };
