@@ -3,6 +3,15 @@ import detectLinks from './linkDetector'
 import showTip from './tip'
 import { tf } from './i18n'
 
+function getPackageVersion() {
+	try {
+		return window.chrome.runtime.getManifest().version
+	} catch (ex) {
+		console.log(ex)
+	}
+	return null
+}
+
 const DEFAULT_STATE = {
 	filterResult: {
 		name: 'filterResult',
@@ -15,6 +24,7 @@ const DEFAULT_STATE = {
 		high: '',
 	},
 	copyLinks: false,
+	packageVersion: getPackageVersion(),
 }
 
 export function buildState(state = DEFAULT_STATE, html = '') {

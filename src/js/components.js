@@ -6,7 +6,7 @@ import { tr } from './i18n'
 import Big from 'big.js'
 import { sprintf } from 'sprintf'
 
-export const MainButtons = ({ dispatch, selected }) => (
+export const MainButtons = ({ dispatch, selected, packageVersion }) => (
 	<Row>
 		<Col xs={3}>
 			<Button size="small" color="primary" onClick={(e) => { e.preventDefault(); window.chrome.runtime.getBackgroundPage((page) =>
@@ -14,7 +14,7 @@ export const MainButtons = ({ dispatch, selected }) => (
 				) } }>{tr('refresh')}</Button>
 		</Col>
 		<Col xs={6} className='text-center'>
-			<h4>{tr('extension_name')}</h4>
+			<h4>{`${tr('extension_name')} ${packageVersion ? `v${packageVersion}` : ''}`}</h4>
 		</Col>
 		<Col xs={3} className='text-right'>
 			<Button size="small" color="accent" onClick={(e) => { e.preventDefault(); dispatch(COPY_LINKS) } }>{`${tr('copy')} (${selected.length})`}</Button>

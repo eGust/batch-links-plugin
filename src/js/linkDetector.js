@@ -148,7 +148,7 @@ export default function detectLinks(html) {
                 link,
             };
         }
-        linkDict[prefix] = _.map(_.values(dict), ({titles, link}) => ({ ...link, titles: [...titles, link.url, link.name] }));
+        linkDict[prefix] = _.map(_.values(dict), ({titles, link}) => ({ ...link, titles: _.uniq([...titles, link.url, link.name]) }));
     })
 
     return {
