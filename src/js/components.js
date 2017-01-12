@@ -91,16 +91,16 @@ export const TypeTabs = ({ filters, links, onSetTypeFilters, onSelectCopyLinks, 
 	</Tabs>
 )
 
-const KB = 1024, MB = KB * 1024, GB = MB * 1024
+const KiB = 1024, MiB = KiB * 1024, GiB = MiB * 1024
 
 function hfSize(size) {
 	if (!size) return ''
 	let s = new Big(size)
 	if (s.gt(0x70000000)) {
-		return `${s.div(GB).toFixed(1)} GB`
+		return `${s.div(GiB).toFixed(2)} GiB`
 	}
 	let n = size | 0
-	return n < KB ? n : n < MB ? sprintf('%.1f KB', n / KB) : n < GB ? sprintf('%.1f MB', n / MB) : sprintf('%.1f GB', n / GB)
+	return n < 9*KiB ? n : n < 5*MiB ? sprintf('%.2f KiB', n / KiB) : sprintf('%.2f MiB', n / MiB)
 }
 
 export const LinkItem = ({ checked = false, index, titles, url, size, decoded, onChangeSel }) => (
