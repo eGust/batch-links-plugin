@@ -50,7 +50,7 @@ export const Filter = ({ filters, filterResult, onToggleTypeFilter, onUpdateFilt
 	<Row>
 		<Col xs={7}>
 			<Form inline={true}>
-				<Checkbox label="Filter Result: " checked={filterResult.checked} onChange={(e) => onUpdateFilter({checked: e.target.checked})} />
+				<Checkbox label={tr('filter')} checked={filterResult.checked} onChange={(e) => onUpdateFilter({checked: e.target.checked})} />
 				<Input value={filterResult.value} onChange={(e) => onUpdateFilter({value: e.target.value})} />
 			</Form>
 		</Col>
