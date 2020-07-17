@@ -12,7 +12,7 @@
   "dependencies": {
     "big.js": "^5.2.2",
     "cheerio": "^1.0.0-rc.3",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.19",
     "muicss": "^0.9.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
